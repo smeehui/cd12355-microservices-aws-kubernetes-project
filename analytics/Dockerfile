@@ -1,4 +1,4 @@
-FROM python:slim
+FROM public.ecr.aws/docker/library/python:slim
 
 WORKDIR /usr/src/app
 
