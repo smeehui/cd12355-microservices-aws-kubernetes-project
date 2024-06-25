@@ -4,7 +4,7 @@ metadata:
   name: db-config
 data:
   DB_NAME: 'proj3'
-  DB_USER: 'myuser'
+  DB_USERNAME: 'myuser'
   DB_HOST: 'postgresql-service'
   DB_PORT: '5432'
 ---
