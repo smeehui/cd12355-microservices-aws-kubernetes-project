@@ -13,7 +13,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v2
         with:
           role-to-assume: arn:aws:iam::${{ env.aws_account_id }}:role/github-actions-rmodi
-          aws-region: ${{ env.aws_region }}
+          aws-region: ${ env.aws_region }
           aws-access-key-id: ${{ env.aws_access_key_id }}
           aws-secret-access-key: ${{ env.aws_secret_access_key }}
           aws-session-token: ${{ env.aws_session_token }}
