@@ -1,0 +1,24 @@
+name: Docker image build and publish
+on:
+  push:
+    branches: main
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: arn:aws:iam::${{ inputs.aws_account_id }}:role/github-actions-rmodi
+          aws-region: ${{ inputs.aws_region }}
+          aws-access-key-id: ${{ env.aws_access_key_id }}
+          aws-secret-access-key: ${{ env.aws_secret_access_key }}
+          aws-session-token: ${{ env.aws_session_token }}
+
+      - name: Run CodeBuild
+        uses: aws-actions/aws-codebuild-run-build@v1
+        with:
+          project-name: coworking
