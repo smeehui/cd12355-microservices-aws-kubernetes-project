@@ -11,7 +11,7 @@ jobs:
 
       - name: Check variables
         run: |
-          echo "AWS_ACCOUNT_ID : ${{ aws_access_key_id.vars.AWS_ACCOUNT_ID }}:"
+          echo "AWS_ACCOUNT_ID : ${{ vars.aws_access_key_id.AWS_ACCOUNT_ID }}:"
           echo "AWS_REGION : ${{ vars.aws_access_key_id.AWS_REGION }}"
           echo "AWS_ACCESS_KEY_ID : ${{ vars.aws_access_key_id.AWS_ACCESS_KEY_ID }}"
           echo "AWS_SECRET_ACCESS_KEY : ${{ vars.aws_access_key_id.AWS_SECRET_ACCESS_KEY }}"
