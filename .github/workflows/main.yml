@@ -13,6 +13,12 @@ jobs:
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v2
+        env:
+          AWS_DEFAULT_REGION: ${{ null }}
+          AWS_REGION: ${{ null }}
+          AWS_ACCESS_KEY_ID: ${{ null }}
+          AWS_SECRET_ACCESS_KEY: ${{ null }}
+          AWS_SESSION_TOKEN: ${{ null }}
         with:
           role-to-assume: arn:aws:iam::${{ vars.AWS_ACCOUNT_ID }}:role/github-actions-rmodi
           aws-region: ${{ vars.AWS_REGION }}
