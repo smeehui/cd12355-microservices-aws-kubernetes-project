@@ -1,30 +1,32 @@
 name: Docker image build and publish
 on:
+  workflow_dispatch: 
   push:
     branches: main
 
 jobs:
-  docker:
+  ci:
     runs-on: ubuntu-latest
+    environment: aws_access_key_id
     steps:
       - uses: actions/checkout@v3
 
       - name: Check variables
         run: |
-          echo "AWS_ACCOUNT_ID : ${{ env.AWS_ACCOUNT_ID }}:"
-          echo "AWS_REGION : ${{ env.AWS_REGION }}"
-          echo "AWS_ACCESS_KEY_ID : ${{ env }}"
-          echo "AWS_SECRET_ACCESS_KEY : ${{ env.AWS_SECRET_ACCESS_KEY }}"
-          echo "AWS_SESSION_TOKEN : ${{ env.AWS_SESSION_TOKEN }}"
+          echo "AWS_ACCOUNT_ID : ${{ vars.AWS_ACCOUNT_ID }}"
+          echo "AWS_REGION : ${{ vars.AWS_REGION }}"
+          echo "AWS_ACCESS_KEY_ID : ${{ vars }}"
+          echo "AWS_SECRET_ACCESS_KEY : ${{ vars.AWS_SECRET_ACCESS_KEY }}"
+          echo "AWS_SESSION_TOKEN : ${{ vars.AWS_SESSION_TOKEN }}"
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
-          role-to-assume: arn:aws:iam::${{ env.AWS_ACCOUNT_ID }}:role/github-actions-rmodi
-          aws-region: ${{ env.AWS_REGION }}
-          aws-access-key-id: ${{ env }}
-          aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
-          aws-session-token: ${{ env.AWS_SESSION_TOKEN }}
+          role-to-assume: arn:aws:iam::${{ vars.AWS_ACCOUNT_ID }}:role/github-actions-rmodi
+          aws-region: ${{ vars.AWS_REGION }}
+          aws-access-key-id: ${{ vars }}
+          aws-secret-access-key: ${{ vars.AWS_SECRET_ACCESS_KEY }}
+          aws-session-token: ${{ vars.AWS_SESSION_TOKEN }}
 
       - name: Run CodeBuild
         uses: aws-actions/aws-codebuild-run-build@v1
