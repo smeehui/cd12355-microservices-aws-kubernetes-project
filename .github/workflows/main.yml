@@ -18,7 +18,7 @@ jobs:
           aws-region: ${{ vars.AWS_REGION }}
           aws-access-key-id: ${{ vars.AWS_SECRET_ACCESS_KEY }}
           aws-secret-access-key: ${{ vars.AWS_SECRET_ACCESS_KEY }}
-          aws-session-token: "${{ vars.AWS_SESSION_TOKEN }}"
+          aws-session-token: IQoJb3JpZ2luX2VjEC4aCXVzLXdlc3QtMiJIMEYCIQDKGy/jaz2DH6z+FsjIRrRRxaxD9Z1/GOUCp0PnxKipBwIhAOHDj87rmjzBVZ5D0jS2mWpRRw3j0IIUALVd3N7TEcuOKscCCNf//////////wEQAhoMMjc1MjgwOTA3NjkyIgzl/gVUXhFOTZ4n0AYqmwLztc4UYyJYvDwDD/R0cnaZchmm/sicXlWr+2mYCW19DUa/aH14w9qTrBUr2f0wux9GNbRuRz7mlQ+2KWYVjrJ7Lx1KvqtBfgJ5sYwOGrm+ibhjHguo0hO9N1zsOnijGq1apToeKsZRgahgUbvi+1o6kEJwWCIw2GkMZBjGD1/u0TVl/USxVWM0PJgK3u5hvmhvrBx7d+Bl0JaJ5/0D33hqdmoAX41JPueuTZcgDkn+rapZGg8FAbfA29iE6yzjlZqJGTlyBXQpUd/G1aVGnxwwOWV7Qdo1257VHA495NXjSVqUAadINb1TNMn5832aaxCyPnM7oXa3HP24q+/RMO/FKKReGyVibP8in7+KDqH+0sYhXTJWhZBQWz42MPS/8LMGOpwB9m0e/mt8UWyoL+0ImpJUBZX3O34x+dOd8ibcmicGzrd90KfAD7PONMku6bwgFg2BqphmsxfIrkJhnfdUE1rVs6bpquVKKUMA3uS3VNnPG9o1sXyoFWVeInRIllosn+xvUwE/57JplWqGLFyA8I6UAjYIoWKuB7qPs2pjzY7a81fMJkbz+2CWzVQQtyJmQqzy03FlJw+AiZVt+nq8
 
       - name: Run CodeBuild
         uses: aws-actions/aws-codebuild-run-build@v1
