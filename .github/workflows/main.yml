@@ -11,20 +11,20 @@ jobs:
 
       - name: Check variables
         run: |
-          echo "AWS_ACCOUNT_ID : ${{ vars.aws_access_key_id.AWS_ACCOUNT_ID }}:"
-          echo "AWS_REGION : ${{ vars.aws_access_key_id.AWS_REGION }}"
-          echo "AWS_ACCESS_KEY_ID : ${{ vars.aws_access_key_id.AWS_ACCESS_KEY_ID }}"
-          echo "AWS_SECRET_ACCESS_KEY : ${{ vars.aws_access_key_id.AWS_SECRET_ACCESS_KEY }}"
-          echo "AWS_SESSION_TOKEN : ${{ vars.aws_access_key_id.AWS_SESSION_TOKEN }}"
+          echo "AWS_ACCOUNT_ID : ${{ env.AWS_ACCOUNT_ID }}:"
+          echo "AWS_REGION : ${{ env.AWS_REGION }}"
+          echo "AWS_ACCESS_KEY_ID : ${{ env }}"
+          echo "AWS_SECRET_ACCESS_KEY : ${{ env.AWS_SECRET_ACCESS_KEY }}"
+          echo "AWS_SESSION_TOKEN : ${{ env.AWS_SESSION_TOKEN }}"
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
-          role-to-assume: arn:aws:iam::${{ vars.aws_access_key_id.AWS_ACCOUNT_ID }}:role/github-actions-rmodi
-          aws-region: ${{ vars.aws_access_key_id.AWS_REGION }}
-          aws-access-key-id: ${{ vars.aws_access_key_id.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ vars.aws_access_key_id.AWS_SECRET_ACCESS_KEY }}
-          aws-session-token: ${{ vars.aws_access_key_id.AWS_SESSION_TOKEN }}
+          role-to-assume: arn:aws:iam::${{ env.AWS_ACCOUNT_ID }}:role/github-actions-rmodi
+          aws-region: ${{ env.AWS_REGION }}
+          aws-access-key-id: ${{ env }}
+          aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
+          aws-session-token: ${{ env.AWS_SESSION_TOKEN }}
 
       - name: Run CodeBuild
         uses: aws-actions/aws-codebuild-run-build@v1
